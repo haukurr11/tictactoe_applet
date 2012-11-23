@@ -6,7 +6,6 @@ public class TTTGame extends Game
 
     public TTTGame()
     {
-
     }
 
     public TTTGame(Player player1, Player player2)
