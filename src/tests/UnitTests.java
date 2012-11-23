@@ -176,10 +176,9 @@ public class UnitTests extends TestCase
         game.addToBoard(1,0);
         game.addToBoard(1,1);
         game.addToBoard(1,2);
-        game.addToBoard(1,3);
+        game.addToBoard(2,0);
         game.addToBoard(2,1);
         game.addToBoard(2,2);
-        game.addToBoard(2,3);        //Horizontal test for player
         assertEquals(0,game.finished());
     }
 }
