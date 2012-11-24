@@ -23,58 +23,69 @@ public class UnitTests extends TestCase
         for(int i = 0;i<3;i++)
             for(int j=0;j<3;j++)
                 assertEquals(game.getValueOnBoard(i,j),0);
+
     }
 
     public void testHorizontalWin()
     {
+
         Player Player1 = new Player("player1");
         Player Player2 = new Player("player2");
         TTTGame game = new TTTGame(Player1, Player2);
         //Horizontal test for player 1
-        for(int i=0;i<3;i++)
-        {
-            if(i < 2)
-            {
-                game.addToBoard(i,i);
-                game.addToBoard(i+1,i);
-                game.addToBoard(i,i+1);
-                game.addToBoard(i+1,i+1);
-                game.addToBoard(i,i+2);
-            }
-            else
-            {
-                game.addToBoard(i,i);
-                game.addToBoard(i-1,i);
-                game.addToBoard(i,i+1);
-                game.addToBoard(i-1,i+1);
-                game.addToBoard(i,i+2);
-            }
-            assertEquals(1,game.finished());
+                   game.addToBoard(0,1);
+                   game.addToBoard(1,1);
+                   game.addToBoard(0,2);
+                   game.addToBoard(1,2);
+                   game.addToBoard(0,0);
+                   assertEquals(1,game.finished());
+
             game = new TTTGame(Player1, Player2);
-        }
+                    game.addToBoard(1,0);
+                    game.addToBoard(0,0);
+                    game.addToBoard(1,1);
+                    game.addToBoard(0,1);
+                    game.addToBoard(1,2);
+                    assertEquals(1,game.finished());
+
+            game = new TTTGame(Player1, Player2);
+                    game.addToBoard(2,0);
+                    game.addToBoard(0,0);
+                    game.addToBoard(2,1);
+                    game.addToBoard(1,1);
+                    game.addToBoard(2,2);
+                    assertEquals(1,game.finished());
+
+
        //Horizontal test for player 2
-            game.addToBoard(1,0);
-            game.addToBoard(0,0);
-            game.addToBoard(1,1);
-            game.addToBoard(0,1);
-            game.addToBoard(2,0);
-            game.addToBoard(0,2);
-            assertEquals(2,game.finished());
             game = new TTTGame(Player1, Player2);
-            game.addToBoard(2,0);
-            game.addToBoard(1,0);
-            game.addToBoard(2,1);
-            game.addToBoard(1,1);
-            game.addToBoard(0,1);
-            assertEquals(2,game.finished());
+                game.addToBoard(1,0);
+                game.addToBoard(0,0);
+                game.addToBoard(1,1);
+                game.addToBoard(0,1);
+                game.addToBoard(2,0);
+                game.addToBoard(0,2);
+                assertEquals(2,game.finished());
+
+           game = new TTTGame(Player1, Player2);
+                 game.addToBoard(2,0);
+                 game.addToBoard(1,0);
+                 game.addToBoard(2,1);
+                 game.addToBoard(1,1);
+                 game.addToBoard(0,1);
+                 game.addToBoard(1,2);
+                 assertEquals(2,game.finished());
+
+
             game = new TTTGame(Player1, Player2);
-            game.addToBoard(0,0);
-            game.addToBoard(2,0);
-            game.addToBoard(0,1);
-            game.addToBoard(2,1);
-            game.addToBoard(1,0);
-            game.addToBoard(2,2);
-            assertEquals(2,game.finished());
+                    game.addToBoard(0,0);
+                    game.addToBoard(2,0);
+                    game.addToBoard(0,1);
+                    game.addToBoard(2,1);
+                    game.addToBoard(1,0);
+                    game.addToBoard(2,2);
+                    assertEquals(2,game.finished());
+
     }
 
     public void testCrossWin()
@@ -113,35 +124,38 @@ public class UnitTests extends TestCase
         game.addToBoard(2,0);
         assertEquals(2,game.finished());
     }
-
     public void testVerticalWin()
     {
         Player Player1 = new Player("player1");
         Player Player2 = new Player("player2");
+
         TTTGame game = new TTTGame(Player1, Player2);
-        //Horizontal test for player 1
-        for(int i=0;i<3;i++)
-        {
-            if(i < 2)
-            {
-                game.addToBoard(i,i);
-                game.addToBoard(i,i+1);
-                game.addToBoard(i+1,i);
-                game.addToBoard(i+1,i+1);
-                game.addToBoard(i+2,i);
-            }
-            else
-            {
-                game.addToBoard(i,i);
-                game.addToBoard(i,i-1);
-                game.addToBoard(i+1,i);
-                game.addToBoard(i+1,i-1);
-                game.addToBoard(i+2,i);
-            }
+            game.addToBoard(0,0);
+            game.addToBoard(0,1);
+            game.addToBoard(1,0);
+            game.addToBoard(1,1);
+            game.addToBoard(2,0);
+        assertEquals(1,game.finished());
+
+        game = new TTTGame(Player1, Player2);
+             game.addToBoard(0,1);
+             game.addToBoard(0,2);
+             game.addToBoard(1,1);
+             game.addToBoard(1,2);
+             game.addToBoard(2,1);
             assertEquals(1,game.finished());
-            game = new TTTGame(Player1, Player2);
-        }
-       //Horizontal test for player 2
+
+        game = new TTTGame(Player1, Player2);
+            game.addToBoard(0,2);
+            game.addToBoard(1,1);
+            game.addToBoard(1,2);
+            game.addToBoard(1,0);
+            game.addToBoard(2,2);
+            assertEquals(1,game.finished());
+
+
+       //vertical test for player 2
+       game = new TTTGame(Player1, Player2);
             game.addToBoard(0,1);
             game.addToBoard(0,0);
             game.addToBoard(1,1);
@@ -149,36 +163,40 @@ public class UnitTests extends TestCase
             game.addToBoard(0,2);
             game.addToBoard(2,0);
             assertEquals(2,game.finished());
-            game = new TTTGame(Player1, Player2);
+
+       game = new TTTGame(Player1, Player2);
             game.addToBoard(0,2);
             game.addToBoard(0,1);
             game.addToBoard(1,2);
             game.addToBoard(1,1);
             game.addToBoard(1,0);
+            game.addToBoard(2,1);
             assertEquals(2,game.finished());
-            game = new TTTGame(Player1, Player2);
+
+       game = new TTTGame(Player1, Player2);
             game.addToBoard(0,0);
             game.addToBoard(0,2);
             game.addToBoard(1,0);
             game.addToBoard(1,2);
-            game.addToBoard(1,0);
+            game.addToBoard(1,1);
             game.addToBoard(2,2);
             assertEquals(2,game.finished());
-    }
-    public void testStalemate()
-    {
-        Player Player1 = new Player("player1");
-        Player Player2 = new Player("player2");
-        TTTGame game = new TTTGame(Player1, Player2);
-        game.addToBoard(0,0);
-        game.addToBoard(0,1);
-        game.addToBoard(0,2);
-        game.addToBoard(1,0);
-        game.addToBoard(1,1);
-        game.addToBoard(1,2);
-        game.addToBoard(2,0);
-        game.addToBoard(2,1);
-        game.addToBoard(2,2);
-        assertEquals(0,game.finished());
-    }
+
+ }
+        public void testStalemate()
+        {
+           Player Player1 = new Player("player1");
+           Player Player2 = new Player("player2");
+           TTTGame game = new TTTGame(Player1, Player2);
+           game.addToBoard(0,0);
+           game.addToBoard(0,1);
+           game.addToBoard(1,2);
+           game.addToBoard(1,0);
+           game.addToBoard(1,1);
+           game.addToBoard(0,2);
+           game.addToBoard(2,0);
+           game.addToBoard(2,2);
+           game.addToBoard(2,1);
+           assertEquals(0,game.finished());
+        }
 }
