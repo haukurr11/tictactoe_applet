@@ -2,7 +2,7 @@ package domain;
 
 public abstract class Game
 {
-    private int turns = 0;
+    protected int turns = 0;
     Player player1;
     Player player2;
     public int finished()
