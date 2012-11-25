@@ -111,4 +111,10 @@ public class TTTGame extends Game
     {
        return board[x][y];
     }
+    public Player getCurrentPlayer()
+    {
+        if(turns % 2 == 0)
+           return player1;
+        return player2;
+    }
 }
