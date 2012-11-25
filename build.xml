@@ -1,0 +1,64 @@
+<project name="Sidannarverkefni" default="jar" basedir=".">
+
+    <!-- ======================================================== -->
+    <!-- Global properties                                        -->
+    <!-- ======================================================== -->
+    <property name="src.java" value="src"/>
+    <property name="src.msg" value="src/msg"/>
+    <property name="output.dir" value="classes"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jar.file" value="Sidannarverkefni.jar"/>
+    <property name="browser" value="/"/>
+    <property name="classpath"
+              value="${lib.dir}
+              ${lib.dir}/junit-4.9.jar"
+            />
+    <!-- ======================================================== -->
+    <target name="init"
+            description="Prepare by creating output directories">
+        <mkdir dir="/tmp/${output.dir}"/>
+        <mkdir dir="/tmp/${dist.dir}"/>
+    </target>
+
+    <!-- ======================================================== -->
+    <target name="compile" depends="init"
+            description="Compilation of all source files">
+        <javac srcdir="${src.java}"
+               destdir="/tmp/${output.dir}"
+               classpath="${classpath}"/>
+    </target>
+
+    <!-- ======================================================== -->
+    <target name="jar" depends="compile"
+            description="Create the JAR">
+        <jar jarfile="/tmp/${dist.dir}/${jar.file}"
+             basedir="/tmp/${output.dir}">
+            <fileset dir="${src.msg}"/>
+        </jar>
+    </target>
+
+    <!-- ======================================================== -->
+    <target name="run" depends="jar"
+            description="Runs the process">
+        <java classname="Game.Application">
+            <classpath>
+                <pathelement path="${classpath}"/>
+                <pathelement path="${java.class.path}"/>
+                <pathelement location="/tmp/${dist.dir}/Sidannarverkefni.jar"/>
+            </classpath>
+        </java>
+    </target>
+    <!-- ======================================================== -->
+    <target name="launchBrowser">
+        <exec executable="${browser}">
+            <arg value="${htmlWithApplet}"/>
+        </exec>
+    </target>
+    <!-- ======================================================== -->
+    <target name="clean" description="Delete all generated files">
+        <delete dir="${output.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+
+</project>
