@@ -91,16 +91,22 @@ public class Application extends JApplet
                 tictactoe.addToBoard(0,0);
             }
             repaint();
-            if(tictactoe.finished() != -1)
+            int winningstatus = tictactoe.finished();
+            if(winningstatus != -1)
             {
                 String win;
-                if(tictactoe.finished() != 0)
-                    win = "Player " + tictactoe.finished() + " has won!, Continue playing?";
+                if(winningstatus != 0)
+                {
+                    String winnerName;
+                    if(winningstatus == 1)
+                        winnerName  = tictactoe.getPlayer1().getName();
+                    else
+                        winnerName = tictactoe.getPlayer2().getName();
+                    win = winnerName + " has won!, Continue playing?";
+                }
                 else win = "Tie! Continue Playing?";
                 boolean keepPlaying = JOptionPane.showConfirmDialog(
-                null,
-                win,
-                "TicTacToe",
+                null,win,"TicTacToe",
                 JOptionPane.YES_NO_OPTION
                 ) == 0;
                 if(keepPlaying)
@@ -119,9 +125,9 @@ public class Application extends JApplet
         g.clearRect(0,0,getWidth(),getHeight());
         g.fillRect(0,0,getWidth(),getHeight());
         g.setColor(Color.RED);
-        g.drawString(player1.getName() + " has " + player1.getWins() + " points",10,15);
+        g.drawString(tictactoe.getPlayer1().getName() + " has " + tictactoe.getPlayer1().getWins() + " points",10,15);
         g.setColor(Color.BLUE);
-        g.drawString(player2.getName() + " has " + player2.getWins() + " points",2*getWidth()/3 + 5,15);
+        g.drawString(tictactoe.getPlayer2().getName() + " has " + tictactoe.getPlayer2().getWins() + " points",2*getWidth()/3 + 5,15);
         g.setColor( Color.WHITE );
         //Draw the tic tac toe lines on background
         g.drawLine( getWidth()/3, 0, getWidth()/3, getHeight() );
@@ -261,7 +267,7 @@ public class Application extends JApplet
      * @param e     The event which the mouse triggers.
      */
         public void mouseReleased( MouseEvent e) { e.consume(); }
-        public void mouseMoved( MouseEvent e ) { }
+        public void mouseMoved( MouseEvent e ) {}
         public void mouseEntered( MouseEvent e ) { }
         public void mouseExited( MouseEvent e ) { }
         public void mouseClicked( MouseEvent e ) { }
