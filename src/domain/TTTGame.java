@@ -12,7 +12,7 @@ package domain;
 
 public class TTTGame extends Game
 {
-    int[][] board;
+    private int[][] board;
 
     /**
      * Constructor which sets the {@link Player} objects for a new {@link Game}.
@@ -34,70 +34,38 @@ public class TTTGame extends Game
     {
         //If for player1 wins
         if(board[0][0] ==1 && board[0][1]==1 && board[0][2] == 1 )
-        {
             return 1;
-        }
         if(board[1][0] ==1 && board[1][1]==1 && board[1][2] == 1 )
-        {
             return 1;
-        }
         if(board[2][0] ==1 && board[2][1]==1 && board[2][2] == 1 )
-        {
             return 1;
-        }
         if(board[0][0] ==1 && board[1][0]==1 && board[2][0] == 1 )
-        {
             return 1;
-        }
         if(board[0][1] ==1 && board[1][1]==1 && board[2][1] == 1 )
-        {
             return 1;
-        }
         if(board[0][2] ==1 && board[1][2]==1 && board[2][2] == 1 )
-        {
             return 1;
-        }
         if(board[0][0] ==1 && board[1][1]==1 && board[2][2] == 1 )
-        {
             return 1;
-        }
         if(board[2][0] ==1 && board[1][1]==1 && board[0][2] == 1 )
-        {
             return 1;
-        }
         //if for player2 wins
         if(board[0][0] ==2 && board[0][1]==2 && board[0][2] == 2 )
-        {
             return 2;
-        }
         if(board[1][0] ==2 && board[1][1]==2 && board[1][2] == 2 )
-        {
             return 2;
-        }
         if(board[2][0] ==2 && board[2][1]==2 && board[2][2] == 2 )
-        {
             return 2;
-        }
         if(board[0][0] ==2 && board[1][0]==2 && board[2][0] == 2 )
-        {
             return 2;
-        }
         if(board[0][1] ==2 && board[1][1]==2 && board[2][1] == 2 )
-        {
             return 2;
-        }
         if(board[0][2] ==2 && board[1][2]==2 && board[2][2] == 2 )
-        {
             return 2;
-        }
         if(board[0][0] ==2 && board[1][1]==2 && board[2][2] == 2 )
-        {
             return 2;
-        }
         if(board[2][0] ==2 && board[1][1]==2 && board[0][2] == 2 )
-        {
             return 2;
-        }
         if (turns > 8)
             return 0;
         return -1;
@@ -118,6 +86,10 @@ public class TTTGame extends Game
             else
                 board[x][y]=2;
             turns++;
+            if(finished() == 1)
+                getPlayer1().increaseWins();
+            else if(finished() == 2)
+                getPlayer2().increaseWins();
         }
     }
 
@@ -131,5 +103,16 @@ public class TTTGame extends Game
     public int getValueOnBoard(int x, int y)
     {
        return board[x][y];
+    }
+
+    /**
+     * Function which will return the current player, whose turn it is to play.
+     * @return      The Player whose turn it is to play.
+     */
+    public Player getCurrentPlayer()
+    {
+        if(turns % 2 == 0)
+           return getPlayer1();
+        return getPlayer2();
     }
 }

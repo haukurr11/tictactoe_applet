@@ -11,9 +11,16 @@ package domain;
 
 public class Player
 {
-    String name;
+    private String name;
     private int wins = 0;
-    public Player() { wins = 0; }
+
+    /**
+     * Constructor which sets the wins to 0
+     */
+    public Player()
+    {
+        wins = 0;
+    }
 
     /**
      * Constructor which sets a name to the Player object which is being created.
@@ -22,6 +29,7 @@ public class Player
     public Player(String name)
     {
        this.name = name;
+       this.wins = 0;
     }
 
     /**
@@ -40,5 +48,13 @@ public class Player
     public int getWins()
     {
         return wins;
+    }
+
+    /**
+     * Function which increases the number of wins for player.
+     */
+    public void increaseWins()
+    {
+        wins++;
     }
 }
