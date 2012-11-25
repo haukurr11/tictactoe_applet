@@ -1,5 +1,14 @@
 package Game;
 
+/**
+ * Creators: Red Team
+ * Date: 23.11.2012
+ *
+ * The class which generates the graphics and functionality of a {@link Game} object. This class creates a Java Applet which
+ * uses the logic from the {@link TTTGame} class to create a playable game of TicTacToe for two players. The players
+ * input their names and the number of wins in the current session will be tallied.
+ */
+
 import domain.Player;
 import domain.TTTGame;
 
@@ -15,6 +24,11 @@ public class Application extends JApplet
     Player player1, player2;
     TTTGame tictactoe;
 
+    /**
+     * Initializer for the Java Applet. First it adds a functionality for the mouse so it can be used to play the game.
+     * Then it prompts an input box for the players to insert their names, and creates these {@link Player} objects
+     * for the current game. Finally, it starts a new game.
+     */
     public void init()
     {
         addMouseListener(this);
@@ -24,6 +38,11 @@ public class Application extends JApplet
         player2 = new Player(name2);
         startGame();
     }
+
+    /**
+     * Function which starts a new game, but switches the {@link Player} objects so the two players take turns on being
+     * the first player.
+     */
     public void startGame()
     {
         Player temp = player1;
@@ -32,6 +51,14 @@ public class Application extends JApplet
         tictactoe = new TTTGame(player2,player1);
         repaint();
     }
+
+    /**
+     * Function which determines the actions when a mouse clicks on the game board. Here is also implemented the
+     * messages players get when a game finishes, and asks the players whether they want to play another game in
+     * the end, which is triggered when the mouse has clicked on the last field available or the field that results
+     * in a win for the player.
+     * @param e     Determines the {@link MouseEvent} the mouse triggers.
+     */
     public void mousePressed( MouseEvent e )
     {
             double x = e.getX();
@@ -83,6 +110,10 @@ public class Application extends JApplet
             e.consume();
         }
 
+    /**
+     * Function which handles the graphics of the game board and the symbols players put on it.
+     * @param g     The {@link Graphics} object which creates the graphics for the {@link Game}.
+     */
     public void paint( Graphics g ) {
         g.setColor( Color.BLACK);
         g.clearRect(0,0,getWidth(),getHeight());
@@ -225,6 +256,10 @@ public class Application extends JApplet
         }
     }
 
+    /**
+     * These functions implement the actions of the mouse.
+     * @param e     The event which the mouse triggers.
+     */
         public void mouseReleased( MouseEvent e) { e.consume(); }
         public void mouseMoved( MouseEvent e ) { }
         public void mouseEntered( MouseEvent e ) { }

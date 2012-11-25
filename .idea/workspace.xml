@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3ab8f371-8aa8-4744-92d3-5e744d607564" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    <list id="3ab8f371-8aa8-4744-92d3-5e744d607564" name="Default" comment="Documentation bætt við, JavaDoc generatað í doc möppunni.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/test.xml" />
+    </list>
+    <list default="true" id="a55c0223-5405-4e39-bc7c-80b9359f2bd1" name="Rejected commit: Default" comment="Documentation bætt við, JavaDoc generatað í doc möppunni.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/resources/background.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/resources/tab.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/resources/titlebar.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/resources/titlebar_end.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Game/Application.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Game/package-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Game/package-summary.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/Game/package-tree.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/allclasses-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/allclasses-noframe.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/constant-values.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/deprecated-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/domain/Game.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/domain/Player.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/domain/TTTGame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/domain/package-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/domain/package-summary.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/domain/package-tree.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/help-doc.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-1.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-10.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-2.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-3.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-4.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-5.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-6.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-7.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-8.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index-files/index-9.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/overview-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/overview-summary.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/overview-tree.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/package-list" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/serialized-form.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/stylesheet.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/tests/UnitTests.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/tests/package-frame.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/tests/package-summary.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/doc/tests/package-tree.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Sidannarverkefni.iml" afterPath="$PROJECT_DIR$/Sidannarverkefni.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Game/Application.java" afterPath="$PROJECT_DIR$/src/Game/Application.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Game.java" afterPath="$PROJECT_DIR$/src/domain/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/Player.java" afterPath="$PROJECT_DIR$/src/domain/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/domain/TTTGame.java" afterPath="$PROJECT_DIR$/src/domain/TTTGame.java" />
     </list>
     <ignored path="Sidannarverkefni.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,13 +114,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Application.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Application.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Game/Application.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="25" column="0" selection-start="654" selection-end="654" vertical-scroll-proportion="0.25839794">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state line="12" column="21" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UnitTests.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tests/UnitTests.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -80,7 +135,16 @@
       <file leaf-file-name="TTTGame.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/TTTGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="14" selection-start="2340" selection-end="2340" vertical-scroll-proportion="0.0">
+            <state line="12" column="13" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="serialized-form.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/doc/serialized-form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.7157895">
               <folding />
             </state>
           </provider>
@@ -89,7 +153,7 @@
       <file leaf-file-name="Game.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0">
+            <state line="4" column="19" selection-start="22" selection-end="62" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -98,7 +162,7 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/domain/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="19" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
+            <state line="37" column="54" selection-start="1063" selection-end="1063" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,19 +194,21 @@
         <option value="$PROJECT_DIR$/src/domain/HumanPlayer.java" />
         <option value="$PROJECT_DIR$/src/domain/HumanTTTPlayer.java" />
         <option value="$PROJECT_DIR$/src/domain/ComputerTTTPlayer.java" />
+        <option value="$PROJECT_DIR$/src/tests/UnitTests.java" />
+        <option value="$PROJECT_DIR$/src/Game/mouseStuff.java" />
+        <option value="$PROJECT_DIR$/src/tests/GUITests.java" />
         <option value="$PROJECT_DIR$/src/domain/Game.java" />
         <option value="$PROJECT_DIR$/src/domain/Player.java" />
-        <option value="$PROJECT_DIR$/src/tests/UnitTests.java" />
         <option value="$PROJECT_DIR$/src/domain/TTTGame.java" />
-        <option value="$PROJECT_DIR$/src/Game/mouseStuff.java" />
         <option value="$PROJECT_DIR$/src/Game/Application.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="1366" />
-    <option name="height" value="723" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -172,6 +238,30 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sidannarverkefni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sidannarverkefni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,6 +295,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -244,28 +338,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Sidannarverkefni" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Sidannarverkefni" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Project Files">
           <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sidannarverkefni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Sidannarverkefni" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="doc" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -275,7 +373,7 @@
   <component name="PropertiesComponent">
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="GoToFile.includeJavaFiles" value="false" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
@@ -487,8 +585,9 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3ab8f371-8aa8-4744-92d3-5e744d607564" name="Default" comment="Komin Unit Test fyrir að spila" />
+      <changelist id="a55c0223-5405-4e39-bc7c-80b9359f2bd1" name="Rejected commit: Default" comment="Documentation bætt við, JavaDoc generatað í doc möppunni." />
       <created>1353687774441</created>
-      <updated>1353687774441</updated>
+      <updated>1353855299062</updated>
     </task>
     <task id="LOCAL-00001" summary="Junit einingarprófunartólinu bætt við">
       <created>1353688777918</created>
@@ -514,13 +613,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1366" height="723" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Data Sources" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8633093" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.86272323" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4152249" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -528,16 +628,15 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="IDEtalk" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32553956" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.6862442" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25038052" sideWeight="0.69166666" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30833334" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.69308037" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30691963" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3247768" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -579,7 +678,7 @@
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="Smá villa í Unit testi, vonandi í lagi núna" />
+    <option name="LAST_COMMIT_MESSAGE" value="Documentation bætt við, JavaDoc generatað í doc möppunni." />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -596,6 +695,7 @@
     <MESSAGE value="POJO klasar komnir&#10;" />
     <MESSAGE value="Vantaði run stillingar fyrir JUnit testið" />
     <MESSAGE value="Smá villa í Unit testi, vonandi í lagi núna" />
+    <MESSAGE value="Documentation bætt við, JavaDoc generatað í doc möppunni." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -617,37 +717,42 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="16" selection-start="16" selection-end="16" vertical-scroll-proportion="0.0" />
+        <state line="0" column="51" selection-start="51" selection-end="51" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/tests/UnitTests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="0.48951048" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/domain/TTTGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="14" selection-start="2340" selection-end="2340" vertical-scroll-proportion="0.0" />
+        <state line="14" column="0" selection-start="316" selection-end="316" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="431" selection-end="431" vertical-scroll-proportion="0.0" />
+        <state line="4" column="19" selection-start="22" selection-end="62" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/domain/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="19" selection-start="335" selection-end="335" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="37" column="54" selection-start="1063" selection-end="1063" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Game/Application.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="25" column="0" selection-start="654" selection-end="654" vertical-scroll-proportion="0.25839794">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state line="12" column="21" selection-start="438" selection-end="438" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/domain/TTTGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="13" selection-start="477" selection-end="477" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/doc/serialized-form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.7157895">
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,7 +834,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>junit-4.9</last-edited>
+          <last-edited>test</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
