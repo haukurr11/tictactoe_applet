@@ -125,9 +125,18 @@ public class Application extends JApplet
         g.clearRect(0,0,getWidth(),getHeight());
         g.fillRect(0,0,getWidth(),getHeight());
         g.setColor(Color.RED);
-        g.drawString(tictactoe.getPlayer1().getName() + " has " + tictactoe.getPlayer1().getWins() + " points",10,15);
+        g.drawString(tictactoe.getPlayer1().getName()
+                + " has " + tictactoe.getPlayer1().getWins()
+                + " points",10,15
+        );
+        g.setColor(Color.WHITE);
+        g.drawString(tictactoe.getCurrentPlayer().getName()
+                + "'s turn!",(getWidth()/3)+5,15
+        );
         g.setColor(Color.BLUE);
-        g.drawString(tictactoe.getPlayer2().getName() + " has " + tictactoe.getPlayer2().getWins() + " points",2*getWidth()/3 + 5,15);
+        g.drawString(tictactoe.getPlayer2().getName()
+                + " has " + tictactoe.getPlayer2().getWins()
+                + " points",2*getWidth()/3 + 5,15);
         g.setColor( Color.WHITE );
         //Draw the tic tac toe lines on background
         g.drawLine( getWidth()/3, 0, getWidth()/3, getHeight() );
