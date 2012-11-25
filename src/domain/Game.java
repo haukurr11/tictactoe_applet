@@ -12,17 +12,8 @@ package domain;
 public abstract class Game
 {
     protected int turns = 0;
-    Player player1;
-    Player player2;
-
-    /**
-     * Function which exits the Game session when it is finished.
-     * @return      0, which terminates the game.
-     */
-    public int finished()
-    {
-        return 0;
-    }
+    private Player player1;
+    private Player player2;
 
     /**
      * Constuctor which sets the {@link Player} objects for the game.
@@ -51,5 +42,14 @@ public abstract class Game
     public Player getPlayer2()
     {
         return player2;
+    }
+
+    /**
+     * Function which exits the Game session when it is finished.
+     * @return      0, which terminates the game.
+     */
+    public int finished()
+    {
+        return 0;
     }
 }

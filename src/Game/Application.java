@@ -21,8 +21,8 @@ import java.awt.event.MouseMotionListener;
 public class Application extends JApplet
         implements MouseListener, MouseMotionListener
 {
-    Player player1, player2;
-    TTTGame tictactoe;
+    private Player player1, player2;
+    private TTTGame tictactoe;
 
     /**
      * Initializer for the Java Applet. First it adds a functionality for the mouse so it can be used to play the game.

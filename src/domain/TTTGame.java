@@ -12,14 +12,8 @@ package domain;
 
 public class TTTGame extends Game
 {
-    int[][] board;
+    private int[][] board;
 
-    public int getTies()
-    {
-        return ties;
-    }
-
-    int ties;
     /**
      * Constructor which sets the {@link Player} objects for a new {@link Game}.
      * @param player1   The first player of this TicTacToe game.
@@ -93,10 +87,9 @@ public class TTTGame extends Game
                 board[x][y]=2;
             turns++;
             if(finished() == 1)
-                player1.increaseWins();
+                getPlayer1().increaseWins();
             else if(finished() == 2)
-                player2.increaseWins();
-            else ties++;
+                getPlayer2().increaseWins();
         }
     }
 
@@ -111,10 +104,15 @@ public class TTTGame extends Game
     {
        return board[x][y];
     }
+
+    /**
+     * Function which will return the current player, whose turn it is to play.
+     * @return      The Player whose turn it is to play.
+     */
     public Player getCurrentPlayer()
     {
         if(turns % 2 == 0)
-           return player1;
-        return player2;
+           return getPlayer1();
+        return getPlayer2();
     }
 }
