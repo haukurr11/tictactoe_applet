@@ -14,6 +14,12 @@ public class TTTGame extends Game
 {
     int[][] board;
 
+    public int getTies()
+    {
+        return ties;
+    }
+
+    int ties;
     /**
      * Constructor which sets the {@link Player} objects for a new {@link Game}.
      * @param player1   The first player of this TicTacToe game.
@@ -34,70 +40,38 @@ public class TTTGame extends Game
     {
         //If for player1 wins
         if(board[0][0] ==1 && board[0][1]==1 && board[0][2] == 1 )
-        {
             return 1;
-        }
         if(board[1][0] ==1 && board[1][1]==1 && board[1][2] == 1 )
-        {
             return 1;
-        }
         if(board[2][0] ==1 && board[2][1]==1 && board[2][2] == 1 )
-        {
             return 1;
-        }
         if(board[0][0] ==1 && board[1][0]==1 && board[2][0] == 1 )
-        {
             return 1;
-        }
         if(board[0][1] ==1 && board[1][1]==1 && board[2][1] == 1 )
-        {
             return 1;
-        }
         if(board[0][2] ==1 && board[1][2]==1 && board[2][2] == 1 )
-        {
             return 1;
-        }
         if(board[0][0] ==1 && board[1][1]==1 && board[2][2] == 1 )
-        {
             return 1;
-        }
         if(board[2][0] ==1 && board[1][1]==1 && board[0][2] == 1 )
-        {
             return 1;
-        }
         //if for player2 wins
         if(board[0][0] ==2 && board[0][1]==2 && board[0][2] == 2 )
-        {
             return 2;
-        }
         if(board[1][0] ==2 && board[1][1]==2 && board[1][2] == 2 )
-        {
             return 2;
-        }
         if(board[2][0] ==2 && board[2][1]==2 && board[2][2] == 2 )
-        {
             return 2;
-        }
         if(board[0][0] ==2 && board[1][0]==2 && board[2][0] == 2 )
-        {
             return 2;
-        }
         if(board[0][1] ==2 && board[1][1]==2 && board[2][1] == 2 )
-        {
             return 2;
-        }
         if(board[0][2] ==2 && board[1][2]==2 && board[2][2] == 2 )
-        {
             return 2;
-        }
         if(board[0][0] ==2 && board[1][1]==2 && board[2][2] == 2 )
-        {
             return 2;
-        }
         if(board[2][0] ==2 && board[1][1]==2 && board[0][2] == 2 )
-        {
             return 2;
-        }
         if (turns > 8)
             return 0;
         return -1;
@@ -118,6 +92,11 @@ public class TTTGame extends Game
             else
                 board[x][y]=2;
             turns++;
+            if(finished() == 1)
+                player1.increaseWins();
+            else if(finished() == 2)
+                player2.increaseWins();
+            else ties++;
         }
     }
 

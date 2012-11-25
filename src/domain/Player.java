@@ -22,8 +22,12 @@ public class Player
     public Player(String name)
     {
        this.name = name;
+       this.wins = 0;
     }
-
+    public void increaseWins()
+    {
+        wins++;
+    }
     /**
      * Function which returns the name of the player.
      * @return  A name which is set to the player in the current {@link Game}
