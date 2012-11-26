@@ -26,7 +26,8 @@ public class TTTGame extends Game
     }
 
     /**
-     * Function which sets the logic of the game, or how a player can successfully win the current TicTacToe game.
+     * Function which sets the logic of the game, or how a player
+     * can successfully win the current TicTacToe game.
      * Also, it handles stalemates if they occur.
      * @return      Value 1 if Player1 wins, Value 2 if Player2 wins, and Value 0 if there is a stalemate.
      */
@@ -72,8 +73,10 @@ public class TTTGame extends Game
     }
 
     /**
-     * Function which adds a symbol to the game board and marks the spot for the current {@link Player}. It uses the
-     * number of turns played to determine which player marked the following spot.
+     * Function which adds a symbol to the game board and
+     * marks the spot for the current {@link Player}.
+     * It uses the number of turns played to determine
+     * which player marked the following spot.
      * @param x     Determines in what row of the game board to insert the symbol.
      * @param y     Determines in what column of the game board to insert the symbol.
      */
@@ -94,8 +97,8 @@ public class TTTGame extends Game
     }
 
     /**
-     * Function which can tell the players if this spot on the game board has already been marked by another player or
-     * if it is empty.
+     * Function which can tell the players if this spot on the game board
+     * has already been marked by another player or if it is empty.
      * @param x     Row of the game board which the particular spot is located.
      * @param y     Column of the game board which the particular spot is located.
      * @return      The position of the symbol on the game board.
@@ -106,7 +109,8 @@ public class TTTGame extends Game
     }
 
     /**
-     * Function which will return the current player, whose turn it is to play.
+     * Function which will return the current player,
+     * whose turn it is to play.
      * @return      The Player whose turn it is to play.
      */
     public Player getCurrentPlayer()

@@ -27,7 +27,8 @@ public abstract class Game
     }
 
     /**
-     * Get-function which gets the {@link Player} object which was set to the first player.
+     * Get-function which gets the {@link Player}
+     * object which was set to the first player.
      * @return      A {@link Player} object set to the first player.
      */
     public Player getPlayer1()
@@ -36,7 +37,8 @@ public abstract class Game
     }
 
     /**
-     * Get-function which gets the {@link Player} object which was set to the first player.
+     * Get-function which gets the {@link Player}
+     * object which was set to the first player.
      * @return      A {@link Player} object set to the second player.
      */
     public Player getPlayer2()
@@ -45,7 +47,8 @@ public abstract class Game
     }
 
     /**
-     * Function which exits the Game session when it is finished.
+     * Function which exits the Game session
+     * when it is finished.
      * @return      0, which terminates the game.
      */
     public int finished()
