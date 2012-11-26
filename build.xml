@@ -10,24 +10,48 @@
     <property name="lib.dir" value="lib"/>
     <property name="jar.file" value="Sidannarverkefni.jar"/>
     <property name="test.dir" location="${output.dir}/tests" />
-    <path id="classpath.base">
-    <pathelement location="${output.dir}" />
+
+      <taskdef resource="checkstyletask.properties"
+         classpath="lib/checkstyle/checkstyle-5.6-all.jar"/>
+       
+      <path id="classpath.base">
+        <pathelement location="${output.dir}" />
       </path>
+
       <path id="classpath.test">
         <pathelement location="lib/junit-4.9.jar" />
         <pathelement location="${test.dir}" />
         <path refid="classpath.base" />
       </path>
 
+      <path id="checkstyle.depend">
+        <pathelement location="lib/checkstyle/antlr-2.7.7.jar" />
+        <pathelement location="lib/checkstyle/commons-beanutils-core-1.8.3.jar" />
+        <pathelement location="lib/checkstyle/commons-cli-1.2.jar" />
+        <pathelement location="lib/checkstyle/google-collections-1.0.jar" />
+        <pathelement location="lib/checkstyle/checkstyle-5.6-all.jar.jar" />
+      </path>
+
+    <!-- ======================================================== -->
+    <target name="checkstyle"
+            description="Generates a report of code convention violations.">
+      <checkstyle config="codingrules.xml"
+                  failureProperty="checkstyle.failure"
+                  failOnViolation="false">
+        <fileset dir="src" includes="**/*.java"/>
+      <classpath refid="checkstyle.depend" />
+      </checkstyle>
+    </target>
+
    <!-- ======================================================== -->
-    <target name="init"
+    <target name="init" depends="checkstyle"
             description="Prepare by creating output directories">
         <mkdir dir="${output.dir}"/>
         <mkdir dir="${dist.dir}"/>
         <mkdir dir="${test.dir}"/>
     </target>
 
-    <!-- ======================================================== -->
+   <!-- ======================================================== -->
     <target name="compile" depends="init"
             description="Compilation of all source files">
         <javac srcdir="${src.java}"
@@ -36,7 +60,7 @@
         </javac>
     </target>
 
-    <!-- ======================================================== -->
+   <!-- ======================================================== -->
       <target name="test" depends="compile">
         <junit>
           <classpath refid="classpath.test" />
@@ -44,7 +68,7 @@
           <test name="tests.UnitTests" />
         </junit>
       </target>
-     <!-- ======================================================== -->
+   <!-- ======================================================== -->
     <target name="jar" depends="test"
             description="Create the JAR">
         <jar jarfile="${dist.dir}/${jar.file}">
@@ -56,7 +80,7 @@
             </manifest>
                  </jar>
     </target>
-    <!-- ======================================================== -->
+   <!-- ======================================================== -->
     <target name="run" depends="jar"
             description="Runs the process">
         <java classname="Game.Application">
