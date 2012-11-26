@@ -284,8 +284,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(2,2)==1)
         {
             g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
+            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,
+                    getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
+            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,
+                    +getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
         }
         if(ticTacToe.getValueOnBoard(2,2)==2)
         {
