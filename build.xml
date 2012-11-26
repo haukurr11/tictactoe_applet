@@ -6,10 +6,13 @@
     <property name="root.dir" value="build"/>
     <property name="src.java" value="src"/>
     <property name="output.dir" value="${root.dir}/classes"/>
+    <property name="html.dir" value="${root.dir}/html"/>
     <property name="dist.dir" value="${root.dir}/dist"/>
     <property name="lib.dir" value="lib"/>
+    <property name="instrumented.dir" value="${root.dir}/instrumented"/>
     <property name="jar.file" value="Sidannarverkefni.jar"/>
     <property name="test.dir" location="${output.dir}/tests" />
+    <property name="cobertura.dir" location="${lib.dir}/cobertura" />
 
       <taskdef resource="checkstyletask.properties"
          classpath="lib/checkstyle/checkstyle-5.6-all.jar"/>
@@ -24,7 +27,18 @@
         <path refid="classpath.base" />
       </path>
 
-      <path id="checkstyle.depend">
+    <path id="cobertura.classpath">
+            <pathelement location="${cobertura.dir}/cobertura.jar" />
+            <pathelement location="${cobertura.dir}/asm-3.0.jar" />
+            <pathelement location="${cobertura.dir}/asm-tree-3.0.jar" />
+            <pathelement location="${cobertura.dir}/jakarta-oro-2.0.8.jar" />
+            <pathelement location="${cobertura.dir}/log4j-1.2.9.jar" />
+        <path refid="classpath.test" />
+    </path>
+
+    <taskdef classpathref="cobertura.classpath" resource="tasks.properties"/>
+
+    <path id="checkstyle.depend">
         <pathelement location="lib/checkstyle/antlr-2.7.7.jar" />
         <pathelement location="lib/checkstyle/commons-beanutils-core-1.8.3.jar" />
         <pathelement location="lib/checkstyle/commons-cli-1.2.jar" />
@@ -48,27 +62,63 @@
             description="Prepare by creating output directories">
         <mkdir dir="${output.dir}"/>
         <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${html.dir}"/>
         <mkdir dir="${test.dir}"/>
+        <mkdir dir="${instrumented.dir}"/>
     </target>
 
    <!-- ======================================================== -->
     <target name="compile" depends="init"
             description="Compilation of all source files">
-        <javac srcdir="${src.java}"
+        <javac debug="true" srcdir="${src.java}"
                destdir="${output.dir}" >
-          <classpath refid="classpath.test" />
+            <classpath refid="cobertura.classpath" />
         </javac>
     </target>
 
-   <!-- ======================================================== -->
-      <target name="test" depends="compile">
+
+    <!-- ======================================================== -->
+    <target name="instrument" depends="init,compile">
+        <delete file="cobertura.ser"/>
+        <delete dir="${instrumented.dir}" />
+        <cobertura-instrument todir="${instrumented.dir}">
+            <ignore regex="org.apache.log4j.*" />
+            <fileset dir="${output.dir}">
+                <include name="**/*.class" />
+                <exclude name="**/*Test.class" />
+            </fileset>
+        </cobertura-instrument>
+    </target>
+
+    <!-- ======================================================== -->
+    <target name="test" depends="compile">
         <junit>
-          <classpath refid="classpath.test" />
-          <formatter type="brief" usefile="false" />
-          <test name="tests.UnitTests" />
+            <classpath refid="classpath.test" />
+            <formatter type="brief" usefile="false" />
+            <test name="tests.UnitTests" />
         </junit>
-      </target>
-   <!-- ======================================================== -->
+    </target>
+    <!-- ======================================================== -->
+    <target name="coverage-check">
+        <cobertura-check branchrate="34" totallinerate="100" />
+    </target>
+    <!-- ======================================================== -->
+    <target name="coverage-report">
+        <cobertura-report srcdir="src" destdir="${html.dir}" format="xml" />
+    </target>
+    <!-- ======================================================== -->
+    <target name="summary-coverage-report">
+        <cobertura-report srcdir="src" destdir="${html.dir}" format="summaryXml" />
+    </target>
+    <!-- ======================================================== -->
+    <target name="alternate-coverage-report">
+        <cobertura-report destdir="${html.dir}">
+            <fileset dir="src">
+                <include name="**/*.java"/>
+            </fileset>
+        </cobertura-report>
+    </target>
+    <!-- ======================================================== -->
     <target name="jar" depends="test"
             description="Create the JAR">
         <jar jarfile="${dist.dir}/${jar.file}">
@@ -94,5 +144,10 @@
     <target name="clean" depends="jar" description="Delete all generated files">
         <delete dir="${output.dir}" />
         <delete dir="${test.dir}"/>
+        <delete dir="${html.dir}"/>
+        <delete dir="${instrumented.dir}"/>
+
     </target>
+    <target name="coverage" depends="compile,instrument,test,coverage-report,summary-coverage-report,alternate-coverage-report"
+            description="Compile, instrument ourself, run the tests and generate JUnit and coverage reports."/>
 </project>
