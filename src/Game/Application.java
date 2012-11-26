@@ -19,7 +19,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public class Application extends JApplet
-        implements MouseListener, MouseMotionListener, Runnable
+    implements MouseListener, MouseMotionListener, Runnable
 {
     private Player player1, player2;
     private TTTGame ticTacToe;
@@ -43,7 +43,7 @@ public class Application extends JApplet
     }
     public void init()
     {
-        setPreferredSize( new Dimension(500,500) );
+        setPreferredSize( new Dimension(500, 500) );
         addMouseListener(this);
         String name1 = JOptionPane.showInputDialog("Name of Player 1");
         String name2 = JOptionPane.showInputDialog("Name of Player 2");
@@ -61,7 +61,7 @@ public class Application extends JApplet
         Player temp = player1;
         player1 = player2;
         player2 = temp;
-        ticTacToe = new TTTGame(player2,player1);
+        ticTacToe = new TTTGame(player2, player1);
         repaint();
     }
 
@@ -74,88 +74,89 @@ public class Application extends JApplet
      */
     public void mousePressed( MouseEvent e )
     {
-            double x = e.getX();
-            double y  = e.getY();
-            if(x >= 2*getWidth()/3)
+        double x = e.getX();
+        double y  = e.getY();
+        if(x >= 2 * getWidth() / 3)
             {
-               if(y>=2*getHeight()/3)
-                  ticTacToe.addToBoard(2,2);
-               else if(y>=getHeight()/3)
-                   ticTacToe.addToBoard(1,2);
-               else
-                   ticTacToe.addToBoard(0,2);
+                if(y >= 2 * getHeight() / 3)
+                    ticTacToe.addToBoard(2, 2);
+                else if(y >= getHeight() / 3)
+                    ticTacToe.addToBoard(1, 2);
+                else
+                    ticTacToe.addToBoard(0, 2);
             }
-            else if(x >= getWidth()/3)
+        else if(x >= getWidth() / 3)
             {
-               if(y>=2*getHeight()/3)
-                   ticTacToe.addToBoard(2,1);
-               else if(y>=getHeight()/3)
-                   ticTacToe.addToBoard(1,1);
-               else
-                   ticTacToe.addToBoard(0,1);
+                if(y >= 2 * getHeight() / 3)
+                    ticTacToe.addToBoard(2, 1);
+                else if(y >= getHeight() / 3)
+                    ticTacToe.addToBoard(1, 1);
+                else
+                    ticTacToe.addToBoard(0, 1);
             }
-            else
+        else
             {
-               if(y>=2*getHeight()/3)
-                ticTacToe.addToBoard(2,0);
-               else if(y>=getHeight()/3)
-                ticTacToe.addToBoard(1,0);
-               else
-                ticTacToe.addToBoard(0,0);
+                if(y >= 2 * getHeight() / 3)
+                    ticTacToe.addToBoard(2, 0);
+                else if(y >= getHeight() / 3)
+                    ticTacToe.addToBoard(1, 0);
+                else
+                    ticTacToe.addToBoard(0, 0);
             }
-            repaint();
-            int winningStatus = ticTacToe.finished();
-            if(winningStatus != -1)
+        repaint();
+        int winningStatus = ticTacToe.finished();
+        if(winningStatus != -1)
             {
                 String win;
                 if(winningStatus != 0)
-                {
-                    String winnerName;
-                    if(winningStatus == 1)
-                        winnerName  = ticTacToe.getPlayer1().getName();
-                    else
-                        winnerName = ticTacToe.getPlayer2().getName();
-                    win = winnerName + " has won!, Continue playing?";
-                }
+                    {
+                        String winnerName;
+                        if(winningStatus == 1)
+                            winnerName  = ticTacToe.getPlayer1().getName();
+                        else
+                            winnerName = ticTacToe.getPlayer2().getName();
+                        win = winnerName + " has won!, Continue playing?";
+                    }
                 else win = "Tie! Continue Playing?";
                 boolean keepPlaying = JOptionPane.showConfirmDialog(
-                null,win,"TicTacToe",
-                JOptionPane.YES_NO_OPTION
-                ) == 0;
+                                          null, win, "TicTacToe",
+                                          JOptionPane.YES_NO_OPTION
+                                      ) == 0;
                 if(keepPlaying)
                     startGame();
                 else System.exit(0);
             }
-            e.consume();
-        }
+        e.consume();
+    }
 
     /**
      * Function which handles the graphics of the game board and the symbols players put on it.
      * @param g     The {@link Graphics} object which creates the graphics for the {@link Game}.
      */
-    public void paint( Graphics g ) {
+    public void paint( Graphics g )
+    {
         g.setColor( Color.BLACK);
-        g.clearRect(0,0,getWidth(),getHeight());
-        g.fillRect(0,0,getWidth(),getHeight());
+        g.clearRect(0, 0, getWidth(), getHeight());
+        g.fillRect(0, 0, getWidth(), getHeight());
         g.setColor(Color.RED);
         g.drawString(ticTacToe.getPlayer1().getName()
-                + " has " + ticTacToe.getPlayer1().getWins()
-                + " points",10,15
-        );
+                     + " has " + ticTacToe.getPlayer1().getWins()
+                     + " points", 10, 15
+                    );
         g.setColor(Color.WHITE);
         g.drawString(ticTacToe.getCurrentPlayer().getName()
-                + "'s turn!",(getWidth()/3)+5,15
-        );
+                     + "'s turn!", (getWidth() / 3) + 5, 15
+                    );
         g.setColor(Color.BLUE);
         g.drawString(ticTacToe.getPlayer2().getName()
-                + " has " + ticTacToe.getPlayer2().getWins()
-                + " points",2*getWidth()/3 + 5,15);
+                     + " has " + ticTacToe.getPlayer2().getWins()
+                     + " points", 2 * getWidth() / 3 + 5, 15);
         g.setColor( Color.WHITE );
         //Draw the tic tac toe lines on background
-        g.drawLine( getWidth()/3, 0, getWidth()/3, getHeight() );
-        g.drawLine( 2*(getWidth()/3), 0, 2*(getWidth()/3), getHeight() );
-        g.drawLine( 0, getHeight()/3, getWidth(), getHeight()/3 );
-        g.drawLine( 0, getHeight()/3*2, getWidth(), getHeight()/3*2 );
+        g.drawLine( getWidth() / 3, 0, getWidth() / 3, getHeight() );
+        g.drawLine( 2 * (getWidth() / 3), 0, 2 * (getWidth() / 3), getHeight() );
+        g.drawLine( 0, getHeight() / 3, getWidth(), getHeight() / 3 );
+        g.drawLine( 0, getHeight() / 3 * 2, getWidth(), getHeight() / 3 * 2 );
 
         //make a 2d object to control the thickness
         Graphics2D g2D = (Graphics2D) g;
@@ -165,135 +166,148 @@ public class Application extends JApplet
         g2D.setColor(Color.RED);
 
         //draw top right
-        if(ticTacToe.getValueOnBoard(0,0)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()/3/2-10,getWidth()/3/2+10,getHeight()/3/2+10);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()/3/2+10,getWidth()/3/2+10,getHeight()/3/2-10);
-        }
+        if(ticTacToe.getValueOnBoard(0, 0) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 - 10);
+            }
 
-        if(ticTacToe.getValueOnBoard(0,0)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()/3/2-10,getHeight()/3/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(0, 0) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, 20, 20);
+            }
 
         //draw top middle
-        if(ticTacToe.getValueOnBoard(0,1)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/2-10,getHeight()/3/2-10,getWidth()/2+10,getHeight()/3/2+10);
-            g2D.drawLine(getWidth()/2-10,getHeight()/3/2+10,getWidth()/2+10,getHeight()/3/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(0,1)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()/2-10,getHeight()/3/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(0,  1) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() / 2 + 10, getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() / 2 + 10, getHeight() / 3 / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(0, 1) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() / 2 - 10, getHeight() / 3 / 2 - 10, 20, 20);
+            }
 
         //draw top right
-        if(ticTacToe.getValueOnBoard(0,2)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()/3/2+10);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()/3/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(0,2)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()-getWidth()/3/2-10,getHeight()/3/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(0, 2) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(0, 2) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, 20, 20);
+            }
 
         //draw middle left
-        if(ticTacToe.getValueOnBoard(1,0)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()/2-10,getWidth()/3/2+10,getHeight()/2+10);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()/2+10,getWidth()/3/2+10,getHeight()/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(1,0)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()/3/2-10,getHeight()/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(1, 0) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 2 - 10, getWidth() / 3 / 2 + 10, getHeight() / 2 + 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 2 + 10, getWidth() / 3 / 2 + 10, getHeight() / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(1, 0) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() / 3 / 2 - 10, getHeight() / 2 - 10, 20, 20);
+            }
 
         //draw middle mid
-        if(ticTacToe.getValueOnBoard(1,1)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/2-10,getHeight()/2-10,getWidth()/2+10,getHeight()/2+10);
-            g2D.drawLine(getWidth()/2-10,getHeight()/2+10,getWidth()/2+10,getHeight()/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(1,1)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()/2-10,getHeight()/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(1, 1) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 2 - 10, getWidth() / 2 + 10, getHeight() / 2 + 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 2 + 10, getWidth() / 2 + 10, getHeight() / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(1, 1) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() / 2 - 10, getHeight() / 2 - 10, 20, 20);
+            }
 
         //draw middle right
-        if(ticTacToe.getValueOnBoard(1,2)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/2-10,getWidth()-getWidth()/3/2+10,getHeight()/2+10);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/2+10,getWidth()-getWidth()/3/2+10,getHeight()/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(1,2)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()-getWidth()/3/2-10,getHeight()/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(1, 2) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 - 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 2 + 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 + 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(1, 2) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 - 10, 20, 20);
+            }
 
         //draw bottom left
-        if(ticTacToe.getValueOnBoard(2,0)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
-        }
+        if(ticTacToe.getValueOnBoard(2, 0) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
+            }
 
-        if(ticTacToe.getValueOnBoard(2,0)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(2, 0) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, 20, 20);
+            }
 
         //draw bottom middle
-        if(ticTacToe.getValueOnBoard(2,1)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/2-10,getHeight()-getHeight()/3/2-10,getWidth()/2+10,getHeight()-getHeight()/3/2+10);
-            g2D.drawLine(getWidth()/2-10,getHeight()-getHeight()/3/2+10,getWidth()/2+10,getHeight()-getHeight()/3/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(2,1)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()/2-10,getHeight()-getHeight()/3/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(2, 1) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(2, 1) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, 20, 20);
+            }
 
         //draw bottom right
-        if(ticTacToe.getValueOnBoard(2,2)==1)
-        {
-            g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
-        }
-        if(ticTacToe.getValueOnBoard(2,2)==2)
-        {
-            g2D.setColor(Color.BLUE);
-            g2D.drawOval(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,20,20);
-        }
+        if(ticTacToe.getValueOnBoard(2, 2) == 1)
+            {
+                g2D.setColor(Color.RED);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
+            }
+        if(ticTacToe.getValueOnBoard(2, 2) == 2)
+            {
+                g2D.setColor(Color.BLUE);
+                g2D.drawOval(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, 20, 20);
+            }
     }
 
     /**
      * These functions implement the actions of the mouse.
      * @param e     The event which the mouse triggers.
      */
-        public void mouseReleased( MouseEvent e) { e.consume(); }
-        public void mouseMoved( MouseEvent e ) {}
-        public void mouseEntered( MouseEvent e ) { }
-        public void mouseExited( MouseEvent e ) { }
-        public void mouseClicked( MouseEvent e ) { }
-        public void mouseDragged( MouseEvent e ) { }
+    public void mouseReleased( MouseEvent e)
+    {
+        e.consume();
+    }
+    public void mouseMoved( MouseEvent e )
+    {
+    }
+    public void mouseEntered( MouseEvent e )
+    {
+    }
+    public void mouseExited( MouseEvent e )
+    {
+    }
+    public void mouseClicked( MouseEvent e )
+    {
+    }
+    public void mouseDragged( MouseEvent e )
+    {
+    }
 
     @Override
     public void run()

@@ -28,8 +28,8 @@ public class Player
      */
     public Player(String name)
     {
-       this.name = name;
-       this.wins = 0;
+        this.name = name;
+        this.wins = 0;
     }
 
     /**

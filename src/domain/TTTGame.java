@@ -21,7 +21,7 @@ public class TTTGame extends Game
      */
     public TTTGame(Player player1, Player player2)
     {
-        super(player1,player2);
+        super(player1, player2);
         board = new int[3][3];
     }
 
@@ -33,38 +33,38 @@ public class TTTGame extends Game
     public int finished()
     {
         //If for player1 wins
-        if(board[0][0] ==1 && board[0][1]==1 && board[0][2] == 1 )
+        if(board[0][0] == 1 && board[0][1] == 1 && board[0][2] == 1 )
             return 1;
-        if(board[1][0] ==1 && board[1][1]==1 && board[1][2] == 1 )
+        if(board[1][0] == 1 && board[1][1] == 1 && board[1][2] == 1 )
             return 1;
-        if(board[2][0] ==1 && board[2][1]==1 && board[2][2] == 1 )
+        if(board[2][0] == 1 && board[2][1] == 1 && board[2][2] == 1 )
             return 1;
-        if(board[0][0] ==1 && board[1][0]==1 && board[2][0] == 1 )
+        if(board[0][0] == 1 && board[1][0] == 1 && board[2][0] == 1 )
             return 1;
-        if(board[0][1] ==1 && board[1][1]==1 && board[2][1] == 1 )
+        if(board[0][1] == 1 && board[1][1] == 1 && board[2][1] == 1 )
             return 1;
-        if(board[0][2] ==1 && board[1][2]==1 && board[2][2] == 1 )
+        if(board[0][2] == 1 && board[1][2] == 1 && board[2][2] == 1 )
             return 1;
-        if(board[0][0] ==1 && board[1][1]==1 && board[2][2] == 1 )
+        if(board[0][0] == 1 && board[1][1] == 1 && board[2][2] == 1 )
             return 1;
-        if(board[2][0] ==1 && board[1][1]==1 && board[0][2] == 1 )
+        if(board[2][0] == 1 && board[1][1] == 1 && board[0][2] == 1 )
             return 1;
         //if for player2 wins
-        if(board[0][0] ==2 && board[0][1]==2 && board[0][2] == 2 )
+        if(board[0][0] == 2 && board[0][1] == 2 && board[0][2] == 2 )
             return 2;
-        if(board[1][0] ==2 && board[1][1]==2 && board[1][2] == 2 )
+        if(board[1][0] == 2 && board[1][1] == 2 && board[1][2] == 2 )
             return 2;
-        if(board[2][0] ==2 && board[2][1]==2 && board[2][2] == 2 )
+        if(board[2][0] == 2 && board[2][1] == 2 && board[2][2] == 2 )
             return 2;
-        if(board[0][0] ==2 && board[1][0]==2 && board[2][0] == 2 )
+        if(board[0][0] == 2 && board[1][0] == 2 && board[2][0] == 2 )
             return 2;
-        if(board[0][1] ==2 && board[1][1]==2 && board[2][1] == 2 )
+        if(board[0][1] == 2 && board[1][1] == 2 && board[2][1] == 2 )
             return 2;
-        if(board[0][2] ==2 && board[1][2]==2 && board[2][2] == 2 )
+        if(board[0][2] == 2 && board[1][2] == 2 && board[2][2] == 2 )
             return 2;
-        if(board[0][0] ==2 && board[1][1]==2 && board[2][2] == 2 )
+        if(board[0][0] == 2 && board[1][1] == 2 && board[2][2] == 2 )
             return 2;
-        if(board[2][0] ==2 && board[1][1]==2 && board[0][2] == 2 )
+        if(board[2][0] == 2 && board[1][1] == 2 && board[0][2] == 2 )
             return 2;
         if (turns > 8)
             return 0;
@@ -77,20 +77,20 @@ public class TTTGame extends Game
      * @param x     Determines in what row of the game board to insert the symbol.
      * @param y     Determines in what column of the game board to insert the symbol.
      */
-    public void addToBoard(int x,int y)
+    public void addToBoard(int x, int y)
     {
-        if(board[x][y]==0)
-        {
-            if(turns %2 ==0)
-                board[x][y]=1;
-            else
-                board[x][y]=2;
-            turns++;
-            if(finished() == 1)
-                getPlayer1().increaseWins();
-            else if(finished() == 2)
-                getPlayer2().increaseWins();
-        }
+        if(board[x][y] == 0)
+            {
+                if(turns % 2 == 0)
+                    board[x][y] = 1;
+                else
+                    board[x][y] = 2;
+                turns++;
+                if(finished() == 1)
+                    getPlayer1().increaseWins();
+                else if(finished() == 2)
+                    getPlayer2().increaseWins();
+            }
     }
 
     /**
@@ -102,7 +102,7 @@ public class TTTGame extends Game
      */
     public int getValueOnBoard(int x, int y)
     {
-       return board[x][y];
+        return board[x][y];
     }
 
     /**
@@ -112,7 +112,7 @@ public class TTTGame extends Game
     public Player getCurrentPlayer()
     {
         if(turns % 2 == 0)
-           return getPlayer1();
+            return getPlayer1();
         return getPlayer2();
     }
 }
