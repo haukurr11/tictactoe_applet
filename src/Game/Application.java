@@ -53,8 +53,8 @@ public class Application extends JApplet
     }
 
     /**
-     * Function which starts a new game, but switches the {@link Player} objects so the two players take turns on being
-     * the first player.
+     * Function which starts a new game, but switches the{@link Player}
+     * objects so the two players take turns on being the first player.
      */
     public void startGame()
     {
@@ -66,10 +66,11 @@ public class Application extends JApplet
     }
 
     /**
-     * Function which determines the actions when a mouse clicks on the game board. Here is also implemented the
-     * messages players get when a game finishes, and asks the players whether they want to play another game in
-     * the end, which is triggered when the mouse has clicked on the last field available or the field that results
-     * in a win for the player.
+     * Function which determines the actions when a mouse clicks on the game board.
+     * Here is also implemented the messages players get when a game finishes, and
+     * asks the players whether they want to play another game in the end, which is
+     * triggered when the mouse has clicked on the last field available or the field
+     * that results in a win for the player.
      * @param e     Determines the {@link MouseEvent} the mouse triggers.
      */
     public void mousePressed( MouseEvent e )
@@ -169,8 +170,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(0, 0) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 + 10);
-                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 - 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() / 3 / 2 + 10,
+                        getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() / 3 / 2 + 10,
+                        getHeight() / 3 / 2 - 10);
             }
 
         if(ticTacToe.getValueOnBoard(0, 0) == 2)
@@ -183,8 +186,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(0,  1) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() / 2 + 10, getHeight() / 3 / 2 + 10);
-                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() / 2 + 10, getHeight() / 3 / 2 - 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() / 2 + 10,
+                        getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() / 2 + 10,
+                        getHeight() / 3 / 2 - 10);
             }
         if(ticTacToe.getValueOnBoard(0, 1) == 2)
             {
@@ -196,8 +201,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(0, 2) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 + 10);
-                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 + 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 - 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 - 10,
+                        getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 3 / 2 + 10,
+                        getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 3 / 2 - 10);
             }
         if(ticTacToe.getValueOnBoard(0, 2) == 2)
             {
@@ -209,8 +216,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(1, 0) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 2 - 10, getWidth() / 3 / 2 + 10, getHeight() / 2 + 10);
-                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 2 + 10, getWidth() / 3 / 2 + 10, getHeight() / 2 - 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 2 - 10,
+                        getWidth() / 3 / 2 + 10, getHeight() / 2 + 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() / 2 + 10,
+                        getWidth() / 3 / 2 + 10, getHeight() / 2 - 10);
             }
         if(ticTacToe.getValueOnBoard(1, 0) == 2)
             {
@@ -235,8 +244,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(1, 2) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 - 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 2 + 10);
-                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 + 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 2 - 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 - 10,
+                        getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 2 + 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() / 2 + 10,
+                        getWidth() - getWidth() / 3 / 2 + 10, getHeight() / 2 - 10);
             }
         if(ticTacToe.getValueOnBoard(1, 2) == 2)
             {
@@ -248,8 +259,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(2, 0) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
-                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() / 3 / 2 + 10,
+                        getHeight() - getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() / 3 / 2 + 10,
+                        getHeight() - getHeight() / 3 / 2 - 10);
             }
 
         if(ticTacToe.getValueOnBoard(2, 0) == 2)
@@ -262,8 +275,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(2, 1) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
-                g2D.drawLine(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() / 2 + 10,
+                        getHeight() - getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() / 2 + 10,
+                        getHeight() - getHeight() / 3 / 2 - 10);
             }
         if(ticTacToe.getValueOnBoard(2, 1) == 2)
             {
@@ -275,8 +290,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(2, 2) == 1)
             {
                 g2D.setColor(Color.RED);
-                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
-                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10, getWidth() - getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 - 10,
+                        getWidth() - getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 + 10);
+                g2D.drawLine(getWidth() - getWidth() / 3 / 2 - 10, getHeight() - getHeight() / 3 / 2 + 10,
+                        getWidth() - getWidth() / 3 / 2 + 10, getHeight() - getHeight() / 3 / 2 - 10);
             }
         if(ticTacToe.getValueOnBoard(2, 2) == 2)
             {

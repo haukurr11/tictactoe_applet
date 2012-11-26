@@ -1,5 +1,4 @@
 package domain;
-
 /**
  * Creators: Red Team
  * Date: 23.11.2012
