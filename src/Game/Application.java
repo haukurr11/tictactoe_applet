@@ -22,7 +22,7 @@ public class Application extends JApplet
         implements MouseListener, MouseMotionListener
 {
     private Player player1, player2;
-    private TTTGame tictactoe;
+    private TTTGame ticTacToe;
 
     /**
      * Initializer for the Java Applet. First it adds a functionality for the mouse so it can be used to play the game.
@@ -48,7 +48,7 @@ public class Application extends JApplet
         Player temp = player1;
         player1 = player2;
         player2 = temp;
-        tictactoe = new TTTGame(player2,player1);
+        ticTacToe = new TTTGame(player2,player1);
         repaint();
     }
 
@@ -66,42 +66,42 @@ public class Application extends JApplet
             if(x >= 2*getWidth()/3)
             {
                if(y>=2*getHeight()/3)
-                  tictactoe.addToBoard(2,2);
+                  ticTacToe.addToBoard(2,2);
                else if(y>=getHeight()/3)
-                   tictactoe.addToBoard(1,2);
+                   ticTacToe.addToBoard(1,2);
                else
-                   tictactoe.addToBoard(0,2);
+                   ticTacToe.addToBoard(0,2);
             }
             else if(x >= getWidth()/3)
             {
                if(y>=2*getHeight()/3)
-                   tictactoe.addToBoard(2,1);
+                   ticTacToe.addToBoard(2,1);
                else if(y>=getHeight()/3)
-                   tictactoe.addToBoard(1,1);
+                   ticTacToe.addToBoard(1,1);
                else
-                   tictactoe.addToBoard(0,1);
+                   ticTacToe.addToBoard(0,1);
             }
             else
             {
                if(y>=2*getHeight()/3)
-                tictactoe.addToBoard(2,0);
+                ticTacToe.addToBoard(2,0);
                else if(y>=getHeight()/3)
-                tictactoe.addToBoard(1,0);
+                ticTacToe.addToBoard(1,0);
                else
-                tictactoe.addToBoard(0,0);
+                ticTacToe.addToBoard(0,0);
             }
             repaint();
-            int winningstatus = tictactoe.finished();
-            if(winningstatus != -1)
+            int winningStatus = ticTacToe.finished();
+            if(winningStatus != -1)
             {
                 String win;
-                if(winningstatus != 0)
+                if(winningStatus != 0)
                 {
                     String winnerName;
-                    if(winningstatus == 1)
-                        winnerName  = tictactoe.getPlayer1().getName();
+                    if(winningStatus == 1)
+                        winnerName  = ticTacToe.getPlayer1().getName();
                     else
-                        winnerName = tictactoe.getPlayer2().getName();
+                        winnerName = ticTacToe.getPlayer2().getName();
                     win = winnerName + " has won!, Continue playing?";
                 }
                 else win = "Tie! Continue Playing?";
@@ -125,17 +125,17 @@ public class Application extends JApplet
         g.clearRect(0,0,getWidth(),getHeight());
         g.fillRect(0,0,getWidth(),getHeight());
         g.setColor(Color.RED);
-        g.drawString(tictactoe.getPlayer1().getName()
-                + " has " + tictactoe.getPlayer1().getWins()
+        g.drawString(ticTacToe.getPlayer1().getName()
+                + " has " + ticTacToe.getPlayer1().getWins()
                 + " points",10,15
         );
         g.setColor(Color.WHITE);
-        g.drawString(tictactoe.getCurrentPlayer().getName()
+        g.drawString(ticTacToe.getCurrentPlayer().getName()
                 + "'s turn!",(getWidth()/3)+5,15
         );
         g.setColor(Color.BLUE);
-        g.drawString(tictactoe.getPlayer2().getName()
-                + " has " + tictactoe.getPlayer2().getWins()
+        g.drawString(ticTacToe.getPlayer2().getName()
+                + " has " + ticTacToe.getPlayer2().getWins()
                 + " points",2*getWidth()/3 + 5,15);
         g.setColor( Color.WHITE );
         //Draw the tic tac toe lines on background
@@ -152,119 +152,119 @@ public class Application extends JApplet
         g2D.setColor(Color.RED);
 
         //draw top right
-        if(tictactoe.getValueOnBoard(0,0)==1)
+        if(ticTacToe.getValueOnBoard(0,0)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()/3/2-10,getHeight()/3/2-10,getWidth()/3/2+10,getHeight()/3/2+10);
             g2D.drawLine(getWidth()/3/2-10,getHeight()/3/2+10,getWidth()/3/2+10,getHeight()/3/2-10);
         }
 
-        if(tictactoe.getValueOnBoard(0,0)==2)
+        if(ticTacToe.getValueOnBoard(0,0)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()/3/2-10,getHeight()/3/2-10,20,20);
         }
 
         //draw top middle
-        if(tictactoe.getValueOnBoard(0,1)==1)
+        if(ticTacToe.getValueOnBoard(0,1)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()/2-10,getHeight()/3/2-10,getWidth()/2+10,getHeight()/3/2+10);
             g2D.drawLine(getWidth()/2-10,getHeight()/3/2+10,getWidth()/2+10,getHeight()/3/2-10);
         }
-        if(tictactoe.getValueOnBoard(0,1)==2)
+        if(ticTacToe.getValueOnBoard(0,1)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()/2-10,getHeight()/3/2-10,20,20);
         }
 
         //draw top right
-        if(tictactoe.getValueOnBoard(0,2)==1)
+        if(ticTacToe.getValueOnBoard(0,2)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()/3/2+10);
             g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()/3/2-10);
         }
-        if(tictactoe.getValueOnBoard(0,2)==2)
+        if(ticTacToe.getValueOnBoard(0,2)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()-getWidth()/3/2-10,getHeight()/3/2-10,20,20);
         }
 
         //draw middle left
-        if(tictactoe.getValueOnBoard(1,0)==1)
+        if(ticTacToe.getValueOnBoard(1,0)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()/3/2-10,getHeight()/2-10,getWidth()/3/2+10,getHeight()/2+10);
             g2D.drawLine(getWidth()/3/2-10,getHeight()/2+10,getWidth()/3/2+10,getHeight()/2-10);
         }
-        if(tictactoe.getValueOnBoard(1,0)==2)
+        if(ticTacToe.getValueOnBoard(1,0)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()/3/2-10,getHeight()/2-10,20,20);
         }
 
         //draw middle mid
-        if(tictactoe.getValueOnBoard(1,1)==1)
+        if(ticTacToe.getValueOnBoard(1,1)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()/2-10,getHeight()/2-10,getWidth()/2+10,getHeight()/2+10);
             g2D.drawLine(getWidth()/2-10,getHeight()/2+10,getWidth()/2+10,getHeight()/2-10);
         }
-        if(tictactoe.getValueOnBoard(1,1)==2)
+        if(ticTacToe.getValueOnBoard(1,1)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()/2-10,getHeight()/2-10,20,20);
         }
 
         //draw middle right
-        if(tictactoe.getValueOnBoard(1,2)==1)
+        if(ticTacToe.getValueOnBoard(1,2)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/2-10,getWidth()-getWidth()/3/2+10,getHeight()/2+10);
             g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/2+10,getWidth()-getWidth()/3/2+10,getHeight()/2-10);
         }
-        if(tictactoe.getValueOnBoard(1,2)==2)
+        if(ticTacToe.getValueOnBoard(1,2)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()-getWidth()/3/2-10,getHeight()/2-10,20,20);
         }
 
         //draw bottom left
-        if(tictactoe.getValueOnBoard(2,0)==1)
+        if(ticTacToe.getValueOnBoard(2,0)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
             g2D.drawLine(getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
         }
 
-        if(tictactoe.getValueOnBoard(2,0)==2)
+        if(ticTacToe.getValueOnBoard(2,0)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,20,20);
         }
 
         //draw bottom middle
-        if(tictactoe.getValueOnBoard(2,1)==1)
+        if(ticTacToe.getValueOnBoard(2,1)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()/2-10,getHeight()-getHeight()/3/2-10,getWidth()/2+10,getHeight()-getHeight()/3/2+10);
             g2D.drawLine(getWidth()/2-10,getHeight()-getHeight()/3/2+10,getWidth()/2+10,getHeight()-getHeight()/3/2-10);
         }
-        if(tictactoe.getValueOnBoard(2,1)==2)
+        if(ticTacToe.getValueOnBoard(2,1)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()/2-10,getHeight()-getHeight()/3/2-10,20,20);
         }
 
         //draw bottom right
-        if(tictactoe.getValueOnBoard(2,2)==1)
+        if(ticTacToe.getValueOnBoard(2,2)==1)
         {
             g2D.setColor(Color.RED);
             g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
             g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
         }
-        if(tictactoe.getValueOnBoard(2,2)==2)
+        if(ticTacToe.getValueOnBoard(2,2)==2)
         {
             g2D.setColor(Color.BLUE);
             g2D.drawOval(getWidth()-getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,20,20);
