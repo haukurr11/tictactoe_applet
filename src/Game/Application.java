@@ -19,7 +19,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
 public class Application extends JApplet
-        implements MouseListener, MouseMotionListener
+        implements MouseListener, MouseMotionListener, Runnable
 {
     private Player player1, player2;
     private TTTGame ticTacToe;
@@ -29,9 +29,21 @@ public class Application extends JApplet
      * Then it prompts an input box for the players to insert their names, and creates these {@link Player} objects
      * for the current game. Finally, it starts a new game.
      */
+
+    public static void main(String args[])
+    {
+        Application ttt = new Application();
+        ttt.init();
+        ttt.start();
+        javax.swing.JFrame window = new javax.swing.JFrame("TicTacToe");
+        window.setContentPane(ttt);
+        window.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
+        window.pack();
+        window.setVisible(true);
+    }
     public void init()
     {
-        addMouseListener(this);
+       addMouseListener(this);
         String name1 = JOptionPane.showInputDialog("Name of Player 1");
         String name2 = JOptionPane.showInputDialog("Name of Player 2");
         player1 = new Player(name1);
@@ -281,5 +293,11 @@ public class Application extends JApplet
         public void mouseExited( MouseEvent e ) { }
         public void mouseClicked( MouseEvent e ) { }
         public void mouseDragged( MouseEvent e ) { }
+
+    @Override
+    public void run()
+    {
+        init();
+    }
 }
 
