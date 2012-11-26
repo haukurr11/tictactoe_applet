@@ -1,14 +1,5 @@
 package Game;
 
-/**
- * Creators: Red Team
- * Date: 23.11.2012
- *
- * The class which generates the graphics and functionality of a {@link Game} object. This class creates a Java Applet which
- * uses the logic from the {@link TTTGame} class to create a playable game of TicTacToe for two players. The players
- * input their names and the number of wins in the current session will be tallied.
- */
-
 import domain.Player;
 import domain.TTTGame;
 
@@ -18,6 +9,15 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+
+/**
+ * Creators: Red Team
+ * Date: 23.11.2012
+ *
+ * The class which generates the graphics and functionality of a {@link Game} object. This class creates a Java Applet
+ * which uses the logic from the {@link TTTGame} class to create a playable game of TicTacToe for two players.
+ * The players input their names and the number of wins in the current session will be tallied.
+ */
 public class Application extends JApplet
     implements MouseListener, MouseMotionListener, Runnable
 {
@@ -25,12 +25,12 @@ public class Application extends JApplet
     private TTTGame ticTacToe;
 
     /**
-     * Initializer for the Java Applet. First it adds a functionality for the mouse so it can be used to play the game.
-     * Then it prompts an input box for the players to insert their names, and creates these {@link Player} objects
-     * for the current game. Finally, it starts a new game.
+     * Main function which creates a new instance of the {@link Application},
+     * runs the initializer and starts a new {@link TTTGame}. It also creates
+     * the new JFrame for the window of the game and sets it to visible.
+     * @param args arguments
      */
-
-    public static void main(String args[])
+    public static void main(String[] args)
     {
         Application ttt = new Application();
         ttt.init();
@@ -41,6 +41,12 @@ public class Application extends JApplet
         window.pack();
         window.setVisible(true);
     }
+
+    /**
+     * Initializer for the Java Applet. First it adds a functionality for the mouse so it can be used to play the game.
+     * Then it prompts an input box for the players to insert their names, and creates these {@link Player} objects
+     * for the current game. Finally, it starts a new game.
+     */
     public void init()
     {
         setPreferredSize( new Dimension(500, 500) );
@@ -78,32 +84,32 @@ public class Application extends JApplet
         double x = e.getX();
         double y  = e.getY();
         if(x >= 2 * getWidth() / 3)
-            {
-                if(y >= 2 * getHeight() / 3)
-                    ticTacToe.addToBoard(2, 2);
-                else if(y >= getHeight() / 3)
-                    ticTacToe.addToBoard(1, 2);
-                else
-                    ticTacToe.addToBoard(0, 2);
-            }
+        {
+            if(y >= 2 * getHeight() / 3)
+                ticTacToe.addToBoard(2, 2);
+            else if(y >= getHeight() / 3)
+                ticTacToe.addToBoard(1, 2);
+            else
+                ticTacToe.addToBoard(0, 2);
+        }
         else if(x >= getWidth() / 3)
-            {
-                if(y >= 2 * getHeight() / 3)
-                    ticTacToe.addToBoard(2, 1);
-                else if(y >= getHeight() / 3)
-                    ticTacToe.addToBoard(1, 1);
-                else
-                    ticTacToe.addToBoard(0, 1);
-            }
+        {
+            if(y >= 2 * getHeight() / 3)
+                ticTacToe.addToBoard(2, 1);
+            else if(y >= getHeight() / 3)
+                ticTacToe.addToBoard(1, 1);
+            else
+                ticTacToe.addToBoard(0, 1);
+        }
         else
-            {
-                if(y >= 2 * getHeight() / 3)
-                    ticTacToe.addToBoard(2, 0);
-                else if(y >= getHeight() / 3)
-                    ticTacToe.addToBoard(1, 0);
-                else
-                    ticTacToe.addToBoard(0, 0);
-            }
+        {
+            if(y >= 2 * getHeight() / 3)
+                ticTacToe.addToBoard(2, 0);
+            else if(y >= getHeight() / 3)
+                ticTacToe.addToBoard(1, 0);
+            else
+                ticTacToe.addToBoard(0, 0);
+        }
         repaint();
         int winningStatus = ticTacToe.finished();
         if(winningStatus != -1)
@@ -304,28 +310,56 @@ public class Application extends JApplet
 
     /**
      * These functions implement the actions of the mouse.
-     * @param e     The event which the mouse triggers.
+     * @param e The event which the mouse triggers.
      */
     public void mouseReleased( MouseEvent e)
     {
         e.consume();
     }
+
+    /**
+     * This function might be used in the future.
+     * @param e The event which the mouse triggers.
+     */
     public void mouseMoved( MouseEvent e )
     {
     }
+
+    /**
+     * This function might be used in the future.
+     * @param e The event which the mouse triggers.
+     */
     public void mouseEntered( MouseEvent e )
     {
     }
+
+    /**
+     * This function might be used in the future.
+     * @param e The event which the mouse triggers.
+     */
     public void mouseExited( MouseEvent e )
     {
     }
+
+    /**
+     * This function might be used in the future.
+     * @param e The event which the mouse triggers.
+     */
     public void mouseClicked( MouseEvent e )
     {
     }
+
+    /**
+     * This function might be used in the future.
+     * @param e The event which the mouse triggers.
+     */
     public void mouseDragged( MouseEvent e )
     {
     }
 
+    /**
+     * This function might be used in the future.
+     */
     @Override
     public void run()
     {
