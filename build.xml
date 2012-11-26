@@ -3,62 +3,73 @@
     <!-- ======================================================== -->
     <!-- Global properties                                        -->
     <!-- ======================================================== -->
+    <property name="root.dir" value="build"/>
     <property name="src.java" value="src"/>
-    <property name="src.msg" value="src/msg"/>
-    <property name="output.dir" value="classes"/>
-    <property name="dist.dir" value="dist"/>
+    <property name="output.dir" value="${root.dir}/classes"/>
+    <property name="dist.dir" value="${root.dir}/dist"/>
     <property name="lib.dir" value="lib"/>
     <property name="jar.file" value="Sidannarverkefni.jar"/>
-    <property name="browser" value="/"/>
-    <property name="classpath"
-              value="${lib.dir}
-              ${lib.dir}/junit-4.9.jar"
-            />
-    <!-- ======================================================== -->
+    <property name="test.dir" location="${output.dir}/tests" />
+    <path id="classpath.base">
+    <pathelement location="${output.dir}" />
+      </path>
+      <path id="classpath.test">
+        <pathelement location="lib/junit-4.9.jar" />
+        <pathelement location="${test.dir}" />
+        <path refid="classpath.base" />
+      </path>
+
+   <!-- ======================================================== -->
     <target name="init"
             description="Prepare by creating output directories">
-        <mkdir dir="/tmp/${output.dir}"/>
-        <mkdir dir="/tmp/${dist.dir}"/>
+        <mkdir dir="${output.dir}"/>
+        <mkdir dir="${dist.dir}"/>
+        <mkdir dir="${test.dir}"/>
     </target>
 
     <!-- ======================================================== -->
     <target name="compile" depends="init"
             description="Compilation of all source files">
         <javac srcdir="${src.java}"
-               destdir="/tmp/${output.dir}"
-               classpath="${classpath}"/>
+               destdir="${output.dir}" >
+          <classpath refid="classpath.test" />
+        </javac>
     </target>
 
     <!-- ======================================================== -->
-    <target name="jar" depends="compile"
+      <target name="test" depends="compile">
+        <junit>
+          <classpath refid="classpath.test" />
+          <formatter type="brief" usefile="false" />
+          <test name="tests.UnitTests" />
+        </junit>
+      </target>
+     <!-- ======================================================== -->
+    <target name="jar" depends="test"
             description="Create the JAR">
-        <jar jarfile="/tmp/${dist.dir}/${jar.file}"
-             basedir="/tmp/${output.dir}">
-            <fileset dir="${src.msg}"/>
-        </jar>
+        <jar jarfile="${dist.dir}/${jar.file}">
+        <fileset dir="${output.dir}">
+            <include name="${output.dir}/domain/**"/>
+            <include name="${output.dir}/Game/**"/>
+        </fileset>
+            <manifest>
+                <attribute name="Main-Class" value="Game.Application"/>
+            </manifest>
+                 </jar>
     </target>
-
     <!-- ======================================================== -->
     <target name="run" depends="jar"
             description="Runs the process">
         <java classname="Game.Application">
             <classpath>
-                <pathelement path="${classpath}"/>
                 <pathelement path="${java.class.path}"/>
-                <pathelement location="/tmp/${dist.dir}/Sidannarverkefni.jar"/>
+                <pathelement location="${dist.dir}/Sidannarverkefni.jar"/>
             </classpath>
         </java>
     </target>
     <!-- ======================================================== -->
-    <target name="launchBrowser">
-        <exec executable="${browser}">
-            <arg value="${htmlWithApplet}"/>
-        </exec>
+    <target name="clean" depends="jar" description="Delete all generated files">
+        <delete dir="${output.dir}" />
+        <delete dir="${test.dir}"/>
     </target>
-    <!-- ======================================================== -->
-    <target name="clean" description="Delete all generated files">
-        <delete dir="${output.dir}"/>
-        <delete dir="${dist.dir}"/>
-    </target>
-
 </project>
