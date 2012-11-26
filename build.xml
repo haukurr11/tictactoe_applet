@@ -49,8 +49,7 @@
             description="Create the JAR">
         <jar jarfile="${dist.dir}/${jar.file}">
         <fileset dir="${output.dir}">
-            <include name="${output.dir}/domain/**"/>
-            <include name="${output.dir}/Game/**"/>
+            <exclude name="**/tests/**"/>
         </fileset>
             <manifest>
                 <attribute name="Main-Class" value="Game.Application"/>
@@ -72,5 +71,4 @@
         <delete dir="${output.dir}" />
         <delete dir="${test.dir}"/>
     </target>
-
 </project>
