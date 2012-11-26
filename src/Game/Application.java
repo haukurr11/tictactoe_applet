@@ -43,7 +43,8 @@ public class Application extends JApplet
     }
     public void init()
     {
-       addMouseListener(this);
+        setPreferredSize( new Dimension(500,500) );
+        addMouseListener(this);
         String name1 = JOptionPane.showInputDialog("Name of Player 1");
         String name2 = JOptionPane.showInputDialog("Name of Player 2");
         player1 = new Player(name1);
