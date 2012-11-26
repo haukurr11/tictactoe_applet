@@ -4,9 +4,11 @@ package Game;
  * Creators: Red Team
  * Date: 23.11.2012
  *
- * The class which generates the graphics and functionality of a {@link Game} object. This class creates a Java Applet which
- * uses the logic from the {@link TTTGame} class to create a playable game of TicTacToe for two players. The players
- * input their names and the number of wins in the current session will be tallied.
+ * The class which generates the graphics and functionality of a
+ * {@link Game} object. This class creates a Java Applet which uses
+ * the logic from the {@link TTTGame} class to create a playable
+ * game of TicTacToe for two players. The players input their names
+ * and the number of wins in the current session will be tallied.
  */
 
 import domain.Player;
@@ -25,9 +27,10 @@ public class Application extends JApplet
     private TTTGame ticTacToe;
 
     /**
-     * Initializer for the Java Applet. First it adds a functionality for the mouse so it can be used to play the game.
-     * Then it prompts an input box for the players to insert their names, and creates these {@link Player} objects
-     * for the current game. Finally, it starts a new game.
+     * Initializer for the Java Applet. First it adds a functionality for
+     * the mouse so it can be used to play the game. Then it prompts an
+     * input box for the players to insert their names, and creates these
+     * {@link Player} objects for the current game. Finally, it starts a new game.
      */
 
     public static void main(String args[])
@@ -53,8 +56,9 @@ public class Application extends JApplet
     }
 
     /**
-     * Function which starts a new game, but switches the {@link Player} objects so the two players take turns on being
-     * the first player.
+     * Function which starts a new game, but switches
+     * the {@link Player} objects so the two players
+     * take turns on being the first player.
      */
     public void startGame()
     {
@@ -66,10 +70,12 @@ public class Application extends JApplet
     }
 
     /**
-     * Function which determines the actions when a mouse clicks on the game board. Here is also implemented the
-     * messages players get when a game finishes, and asks the players whether they want to play another game in
-     * the end, which is triggered when the mouse has clicked on the last field available or the field that results
-     * in a win for the player.
+     * Function which determines the actions when a mouse clicks on the
+     * game board. Here is also implemented the messages players get when
+     * a game finishes, and asks the players whether they want to play
+     * another game in the end, which is triggered when the mouse has
+     * clicked on the last field available or the field that results in
+     * a win for the player.
      * @param e     Determines the {@link MouseEvent} the mouse triggers.
      */
     public void mousePressed( MouseEvent e )
@@ -195,8 +201,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(0,2)==1)
         {
             g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()/3/2+10);
-            g2D.drawLine(getWidth()-getWidth()/3/2-10,getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()/3/2-10);
+            g2D.drawLine(
+                    getWidth()-getWidth()/3/2-10,getHeight()/3/2-10,getWidth()-getWidth()/3/2+10,getHeight()/3/2+10);
+            g2D.drawLine(
+                    getWidth()-getWidth()/3/2-10,getHeight()/3/2+10,getWidth()-getWidth()/3/2+10,getHeight()/3/2-10);
         }
         if(ticTacToe.getValueOnBoard(0,2)==2)
         {
@@ -247,8 +255,10 @@ public class Application extends JApplet
         if(ticTacToe.getValueOnBoard(2,0)==1)
         {
             g2D.setColor(Color.RED);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
-            g2D.drawLine(getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
+            g2D.drawLine(
+                    getWidth()/3/2-10,getHeight()-getHeight()/3/2-10,getWidth()/3/2+10,getHeight()-getHeight()/3/2+10);
+            g2D.drawLine(
+                    getWidth()/3/2-10,getHeight()-getHeight()/3/2+10,getWidth()/3/2+10,getHeight()-getHeight()/3/2-10);
         }
 
         if(ticTacToe.getValueOnBoard(2,0)==2)

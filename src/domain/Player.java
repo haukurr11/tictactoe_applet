@@ -23,7 +23,8 @@ public class Player
     }
 
     /**
-     * Constructor which sets a name to the Player object which is being created.
+     * Constructor which sets a name to the
+     * Player object which is being created.
      * @param name  Name of the player, in a form of a String.
      */
     public Player(String name)
@@ -42,7 +43,8 @@ public class Player
     }
 
     /**
-     * Function which returns how often the player has won the current {@link Game}
+     * Function which returns how often the player
+     * has won the current {@link Game}
      * @return  Number of wins for the current player.
      */
     public int getWins()
@@ -51,7 +53,8 @@ public class Player
     }
 
     /**
-     * Function which increases the number of wins for player.
+     * Function which increases the
+     * number of wins for player.
      */
     public void increaseWins()
     {
